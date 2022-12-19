@@ -76,13 +76,22 @@ record.push(new Contacts("Jivika", "Patil", "Kanchan Nagar", "Jalgaon","Maharash
 record.push(new Contacts("Kavya", "Patil", "GTP Road", "Nashik", "Maharashtra", 456532, 
 "9648515621", "kavya@gmail.com"));
 
-process.stdout.write(record.toString);
+console.log(record);
 
-function editContactAddress(firstName,lastName,newAddress){
+function searchContactAddress(firstName,lastName,newAddress){
     for (contact in record){
         if (contact.firstName==firstName && contact.lastName==lastName) contact.address=newAddress;
+        console.log(contact);
     }
 }
 
-editContactAddress("Darshna","Suryawanshi","Chandanvan");
-process.stdout.write(record.toString);
+searchContactAddress("Darshna","Suryawanshi","Chandanvan");
+
+function deleteContact(firstName,lastName){
+    for(let i=0;i<record.length;i++){
+        if(record[i].firstName==firstName &&record[i].lastName==lastName) delete record[i];
+    }
+}
+
+deleteContact("Krutika","Patil");
+console.log(record);
