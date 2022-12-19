@@ -77,3 +77,12 @@ record.push(new Contacts("Kavya", "Patil", "GTP Road", "Nashik", "Maharashtra", 
 "9648515621", "kavya@gmail.com"));
 
 process.stdout.write(record.toString);
+
+function editContactAddress(firstName,lastName,newAddress){
+    for (contact in record){
+        if (contact.firstName==firstName && contact.lastName==lastName) contact.address=newAddress;
+    }
+}
+
+editContactAddress("Darshna","Suryawanshi","Chandanvan");
+process.stdout.write(record.toString);
