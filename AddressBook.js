@@ -95,3 +95,12 @@ function deleteContact(firstName,lastName){
 
 deleteContact("Krutika","Patil");
 console.log(record);
+
+function count(contactCount){
+    return ++contactCount;
+}
+
+function getCount(){
+    console.log("Contact Count: "+record.reduce(count,0)+"\n");
+}
+getCount();
