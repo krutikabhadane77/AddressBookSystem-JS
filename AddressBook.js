@@ -63,5 +63,17 @@ class Contacts{
 //Create an obj
 let contact = new Contacts("Krutika","Patil","Deopur","Dhule","Maharashtra",424006,
                                     "9897654321","kp@gmail.com");
-process.stdout.write(contact.toString());
 
+let record=new Array()
+record.push(contact);
+
+record.push(new Contacts("Darshna", "Suryawanshi", "ChandanVihar", "Navsari","Gujrat", 765456, 
+"9765485884", "ds@gmail.com"));
+
+record.push(new Contacts("Jivika", "Patil", "Kanchan Nagar", "Jalgaon","Maharashtra", 675454, 
+"6787564534", "jp@gmai.com"));
+
+record.push(new Contacts("Kavya", "Patil", "GTP Road", "Nashik", "Maharashtra", 456532, 
+"9648515621", "kavya@gmail.com"));
+
+process.stdout.write(record.toString);
