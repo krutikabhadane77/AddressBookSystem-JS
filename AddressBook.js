@@ -33,6 +33,8 @@ class Contacts{
         if(lastNameRegex.test(params[1])) this.lastName = params[1];
         else throw new ValidationError("Invalid Last Name: "+params[1]);
         
+        if(this.checkDuplicacy) throw new ValidationError("Record already exists.");
+        
         if(addressRegex.test(params[2])) this.address = params[2];
         else throw new ValidationError("Invalid Address: "+params[2]);
         
@@ -50,6 +52,13 @@ class Contacts{
         
         if(emailRegex.test(params[7])) this.email = params[7];
         else throw new ValidationError("Invalid Email: "+params[7]);
+    }
+
+    checkDuplicacy(firstName,lastName){
+        let newContact = record.find(contact=>
+            contact.firstName==firstName && contact.lastName==lastName);
+        if(newContact==undefined) return false;
+        else return true;
     }
 
     //toString method
@@ -104,3 +113,7 @@ function getCount(){
     console.log("Contact Count: "+record.reduce(count,0)+"\n");
 }
 getCount();
+
+
+record.push(new Contacts("Kavya", "Patil", "GTP Road", "Nashik", "Maharashtra", 456532, 
+"9648515621", "kavya@gmail.com"));
