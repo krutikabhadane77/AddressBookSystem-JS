@@ -33,7 +33,7 @@ class Contacts{
         if(lastNameRegex.test(params[1])) this.lastName = params[1];
         else throw new ValidationError("Invalid Last Name: "+params[1]);
         
-        if(this.checkDuplicacy) throw new ValidationError("Record already exists.");
+        //if(this.checkDuplicacy) throw new ValidationError("Record already exists.");
         
         if(addressRegex.test(params[2])) this.address = params[2];
         else throw new ValidationError("Invalid Address: "+params[2]);
@@ -115,5 +115,18 @@ function getCount(){
 getCount();
 
 
-record.push(new Contacts("Kavya", "Patil", "GTP Road", "Nashik", "Maharashtra", 456532, 
-"9648515621", "kavya@gmail.com"));
+/*record.push(new Contacts("Kavya", "Patil", "GTP Road", "Nashik", "Maharashtra", 456532, 
+"9648515621", "kavya@gmail.com"));*/
+
+function searchContactOnCityState(firstName,city,state){
+    let citySearch=record.find(contact=>contact.firstName==firstName&&contact.city==city);
+    let stateSearch=record.find(contact=>contact.firstName==firstName&&contact.state==state);
+    if (citySearch==undefined){
+        if (stateSearch==undefined){
+            console.log(firstName+" does not exist.");
+        }else {console.log(contact);}
+    }else {console.log(contact);}
+}
+searchContactOnCityState("Darshna","Navsari","");
+searchContactOnCityState("Darshna","","Gujrat");
+searchContactOnCityState("Darshna","Navsari","Gujrat");
