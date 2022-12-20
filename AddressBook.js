@@ -140,3 +140,12 @@ function viewByState(state){
 }
 viewByCity("Navsari");
 viewByState("Gujrat");
+
+function getCountByCityState(cityOrState){
+    let count = 0;
+    record.filter(contact=>contact.city==cityOrState).forEach(contact=>++count);
+    record.filter(contact=>contact.state==cityOrState).forEach(contact=>++count);
+    return count;
+}
+console.log("Count in Navsari: "+getCountByCityState("Navsari"));
+console.log("Count in Gujrat: "+getCountByCityState("Gujrat"));
