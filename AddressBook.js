@@ -54,7 +54,7 @@ class Contacts{
         else throw new ValidationError("Invalid Email: "+params[7]);
     }
 
-    checkDuplicacy(firstName,lastName){
+    checkDuplicate(firstName,lastName){
         let newContact = record.find(contact=>
             contact.firstName==firstName && contact.lastName==lastName);
         if(newContact==undefined) return false;
@@ -119,8 +119,8 @@ getCount();
 "9648515621", "kavya@gmail.com"));*/
 
 function searchContactOnCityState(firstName,city,state){
-    let citySearch=record.find(contact=>contact.firstName==firstName&&contact.city==city);
-    let stateSearch=record.find(contact=>contact.firstName==firstName&&contact.state==state);
+    let citySearch=record.filter(contact=>contact.firstName==firstName&&contact.city==city);
+    let stateSearch=record.filter(contact=>contact.firstName==firstName&&contact.state==state);
     if (citySearch==undefined){
         if (stateSearch==undefined){
             console.log(firstName+" does not exist.");
@@ -131,6 +131,7 @@ searchContactOnCityState("Darshna","Navsari","");
 searchContactOnCityState("Darshna","","Gujrat");
 searchContactOnCityState("Darshna","Navsari","Gujrat");
 
+
 function viewByCity(city){
     record.filter(contact=>contact.city==city).forEach(contact=>console.log(contact))
 }
@@ -138,8 +139,11 @@ function viewByCity(city){
 function viewByState(state){
     record.filter(contact=>contact.state==state).forEach(contact=>console.log(contact))
 }
+console.log("Person lives in Navsari");
 viewByCity("Navsari");
-viewByState("Gujrat");
+console.log("Person lives in Maharashtra");
+viewByState("Maharashtra");
+
 
 function getCountByCityState(cityOrState){
     let count = 0;
@@ -148,4 +152,12 @@ function getCountByCityState(cityOrState){
     return count;
 }
 console.log("Count in Navsari: "+getCountByCityState("Navsari"));
-console.log("Count in Gujrat: "+getCountByCityState("Gujrat"));
+console.log("Count in Maharashtra: "+getCountByCityState("Maharashtra"));
+
+
+function sortContactsByName(){
+    sortContacts("name");
+ }
+ sortContactsByName();
+ console.log("The sorted Address Book Person Name is: ");
+ console.log(record);
