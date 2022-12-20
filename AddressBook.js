@@ -130,3 +130,13 @@ function searchContactOnCityState(firstName,city,state){
 searchContactOnCityState("Darshna","Navsari","");
 searchContactOnCityState("Darshna","","Gujrat");
 searchContactOnCityState("Darshna","Navsari","Gujrat");
+
+function viewByCity(city){
+    record.filter(contact=>contact.city==city).forEach(contact=>console.log(contact))
+}
+
+function viewByState(state){
+    record.filter(contact=>contact.state==state).forEach(contact=>console.log(contact))
+}
+viewByCity("Navsari");
+viewByState("Gujrat");
